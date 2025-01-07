@@ -62,7 +62,7 @@ jobs:
           echo '📦 Release bundle ['${{ github.actor }}-evidence-training:${{ github.run_number }}']('${VER_LINK}') created' >> $GITHUB_STEP_SUMMARY
 
       - name: Approve release-bundle
-         run: |
+        run: |
            echo '{ "actor": "${{ github.actor }}", "date": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'", "approved": "true" }' > rbv2_approval_evidence.json
            jf evd create --key "${{ secrets.PRIVATE_KEY }}" --key-alias ${{ secrets.KEY_ALIAS }} \
              --release-bundle ${{ github.actor }}-evidence-training --release-bundle-version ${{ github.run_number }} \
